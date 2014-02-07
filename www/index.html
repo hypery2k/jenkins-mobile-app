@@ -17,29 +17,41 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html ng-app="jenkinsmobileapp">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app" ng-controller="HomeController">
-            <h1>Apache Cordova with {{message}}</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<html ng-app="jenkinsmobileApp">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title>Jenkins MobileApp</title>
+	</head>
+	<body>
+
+    <h1>Jenkins MobileApp</h1>
+		<div class="app">
+            <div ng-controller="HomeController">
+                <h2>Status:</h2>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                    <p>Done with Apache Cordova and {{message}}</p>
+                </div>
+                <input type="text" ng-model="message"/>
             </div>
-            <input type="text" ng-model="message"/>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="lib/angular/angular.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+			<div ng-controller="JobListCtrl">
+                <h2>Jobs:</h2>
+				<ul>
+					<li ng-repeat="job in jobs">
+						{{job.name}}
+						<p>{{job.description}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--<script type="text/javascript" src="cordova.js"/>-->		
+		<script type="text/javascript" src="lib/angular/angular.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/controllers.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
 </html>
